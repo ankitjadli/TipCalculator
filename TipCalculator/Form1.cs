@@ -16,8 +16,8 @@ namespace TipCalculator
         {
             InitializeComponent();
         }
-
-        private void calculate()
+      
+        private void Calculate_Tip()
         {
             if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text))
             {
@@ -25,19 +25,33 @@ namespace TipCalculator
             }
             else
             {
-                double bill, tip, total, noofpoeple,perperson;
-                bill = double.Parse(textBox1.Text);
+                double bill=0, tip=0, total=0, noofpoeple=0, perperson=0;
+                try
+                {
+                    bill = double.Parse(textBox1.Text);
+                }
+                catch (System.OverflowException)
+                {
+                    bill = 0;
+                    textBox1.Text = "0";
+                }
+                
                 noofpoeple = double.Parse(textBox3.Text);
                 tip = double.Parse(textBox2.Text);
-                if(tip>100)
+                if (tip > 100)
                 {
                     tip = 100;
                     textBox2.Text = "100";
                 }
                 if (noofpoeple > 1000)
                 {
-                    noofpoeple   = 1000;
+                    noofpoeple = 1000;
                     textBox3.Text = "1000";
+                }
+                if (noofpoeple==0)
+                {
+                    noofpoeple = 1;
+                    textBox3.Text = "1";
                 }
                 if (bill < 0 || noofpoeple < 0 || tip < 0)
                 {
@@ -46,22 +60,39 @@ namespace TipCalculator
                 else
                 {
                     label6.Text = ("");
-                    total = (tip / 100) * bill;
-                    total = Math.Round((total / noofpoeple),3);
-                    perperson = Math.Round((total + (bill / noofpoeple)),3);
-                    labeltax.Text = ("$") +  total.ToString();
+                    try
+                    {
+                        total = (tip / 100) * bill;
+                        total = Math.Round((total / noofpoeple), 3);
+                    }
+                    catch (System.OverflowException)
+                    {
+                        total = 0;
+                        labeltax.Text = "$0";
+                    }
+
+                    try
+                    {
+                       perperson = Math.Round((total + (bill / noofpoeple)), 3);
+                    }
+                    catch (System.OverflowException)
+                    {
+                        perperson = 0;
+                        label8.Text = "$0";
+                    }
+                    labeltax.Text = ("$") + total.ToString();
                     label8.Text = ("$") + perperson.ToString();
                 }
             }
         }
-        
+
         private void tipminus_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(textBox2.Text))
             {
                 textBox2.Text = "0";
             }
-            if (double.Parse(textBox2.Text)>0)
+            else if (double.Parse(textBox2.Text) > 0)
             {
                 double temp = double.Parse(textBox2.Text) - 1;
                 textBox2.Text = temp.ToString();
@@ -74,7 +105,7 @@ namespace TipCalculator
             {
                 textBox2.Text = "0";
             }
-            if (double.Parse(textBox2.Text)<100)
+            else if (double.Parse(textBox2.Text) < 100)
             {
                 double temp = double.Parse(textBox2.Text) + 1;
                 textBox2.Text = temp.ToString();
@@ -87,7 +118,7 @@ namespace TipCalculator
             {
                 textBox3.Text = "1";
             }
-            if (double.Parse(textBox3.Text) < 100)
+            else if (double.Parse(textBox3.Text) < 100)
             {
                 double temp = double.Parse(textBox3.Text) + 1;
                 textBox3.Text = temp.ToString();
@@ -96,11 +127,11 @@ namespace TipCalculator
 
         private void pplminus_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(textBox3.Text))
+            if (String.IsNullOrEmpty(textBox3.Text))
             {
                 textBox3.Text = "1";
             }
-            if (double.Parse(textBox3.Text)>1)
+            else if (double.Parse(textBox3.Text) > 1)
             {
                 double temp = double.Parse(textBox3.Text) - 1;
                 textBox3.Text = temp.ToString();
@@ -109,27 +140,27 @@ namespace TipCalculator
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            calculate();
+            Calculate_Tip();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            calculate();
+            Calculate_Tip();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            calculate();
+            Calculate_Tip();
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if(!Char.IsDigit(ch) && ch!=8)
+            if (!Char.IsDigit(ch) && ch != 8)
             {
                 e.Handled = true;
             }
-                
+
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
