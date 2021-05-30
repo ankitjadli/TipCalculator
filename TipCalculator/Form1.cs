@@ -20,7 +20,7 @@ namespace TipCalculator
         }
         private void Calculate_Tip()
         {
-            if (String.IsNullOrEmpty(Bill_amount_Textbox.Text) || String.IsNullOrEmpty(Tip_Percentage_TextBox.Text) || String.IsNullOrEmpty(Number_Of_People.Text))
+            if (String.IsNullOrEmpty(Bill_amount_Textbox.Text) || String.IsNullOrEmpty(Tip_Percentage_TextBox.Text) || String.IsNullOrEmpty(Number_Of_People_TextBox.Text))
             {
                 label6.Text = ("Field must not be empty");
             }
@@ -37,7 +37,7 @@ namespace TipCalculator
                     Bill_amount_Textbox.Text = "0";
                 }
                 
-                Number_Of_People = double.Parse(this.Number_Of_People.Text);
+                Number_Of_People = double.Parse(this.Number_Of_People_TextBox.Text);
                 Tip_Percentage = double.Parse(Tip_Percentage_TextBox.Text);
                 if (Tip_Percentage > 100)
                 {
@@ -47,12 +47,12 @@ namespace TipCalculator
                 if (Number_Of_People > 1000)
                 {
                     Number_Of_People = 1000;
-                    this.Number_Of_People.Text = "1000";
+                    this.Number_Of_People_TextBox.Text = "1000";
                 }
                 if (Number_Of_People==0)
                 {
                     Number_Of_People = 1;
-                    this.Number_Of_People.Text = "1";
+                    this.Number_Of_People_TextBox.Text = "1";
                 }
                 if (Bill_Amount < 0 || Number_Of_People < 0 || Tip_Percentage < 0)
                 {
@@ -115,27 +115,27 @@ namespace TipCalculator
 
         private void pplplus_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Number_Of_People.Text))
+            if (String.IsNullOrEmpty(Number_Of_People_TextBox.Text))
             {
-                Number_Of_People.Text = "1";
+                Number_Of_People_TextBox.Text = "1";
             }
-            else if (double.Parse(Number_Of_People.Text) < 100)
+            else if (double.Parse(Number_Of_People_TextBox.Text) < 100)
             {
-                double temp = double.Parse(Number_Of_People.Text) + 1;
-                Number_Of_People.Text = temp.ToString();
+                double temp = double.Parse(Number_Of_People_TextBox.Text) + 1;
+                Number_Of_People_TextBox.Text = temp.ToString();
             }
         }
 
         private void pplminus_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Number_Of_People.Text))
+            if (String.IsNullOrEmpty(Number_Of_People_TextBox.Text))
             {
-                Number_Of_People.Text = "1";
+                Number_Of_People_TextBox.Text = "1";
             }
-            else if (double.Parse(Number_Of_People.Text) > 1)
+            else if (double.Parse(Number_Of_People_TextBox.Text) > 1)
             {
-                double temp = double.Parse(Number_Of_People.Text) - 1;
-                Number_Of_People.Text = temp.ToString();
+                double temp = double.Parse(Number_Of_People_TextBox.Text) - 1;
+                Number_Of_People_TextBox.Text = temp.ToString();
             }
         }
 

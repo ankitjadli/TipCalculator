@@ -34,7 +34,7 @@ namespace TipCalculator
             this.Tip_Percentage_TextBox = new System.Windows.Forms.TextBox();
             this.Tip_Per_Person_Label = new System.Windows.Forms.Label();
             this.labeltax = new System.Windows.Forms.Label();
-            this.Number_Of_People = new System.Windows.Forms.TextBox();
+            this.Number_Of_People_TextBox = new System.Windows.Forms.TextBox();
             this.Number_Of_People_Label = new System.Windows.Forms.Label();
             this.Bill_Amount_Label = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -98,16 +98,16 @@ namespace TipCalculator
             this.labeltax.TabIndex = 6;
             this.labeltax.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Number_Of_People
+            // Number_Of_People_TextBox
             // 
-            this.Number_Of_People.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Number_Of_People.Location = new System.Drawing.Point(42, 133);
-            this.Number_Of_People.Name = "Number_Of_People";
-            this.Number_Of_People.Size = new System.Drawing.Size(83, 20);
-            this.Number_Of_People.TabIndex = 9;
-            this.Number_Of_People.Text = "1";
-            this.Number_Of_People.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            this.Number_Of_People.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
+            this.Number_Of_People_TextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Number_Of_People_TextBox.Location = new System.Drawing.Point(42, 133);
+            this.Number_Of_People_TextBox.Name = "Number_Of_People_TextBox";
+            this.Number_Of_People_TextBox.Size = new System.Drawing.Size(83, 20);
+            this.Number_Of_People_TextBox.TabIndex = 9;
+            this.Number_Of_People_TextBox.Text = "1";
+            this.Number_Of_People_TextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.Number_Of_People_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // Number_Of_People_Label
             // 
@@ -210,7 +210,7 @@ namespace TipCalculator
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Bill_Amount_Label);
             this.Controls.Add(this.Number_Of_People_Label);
-            this.Controls.Add(this.Number_Of_People);
+            this.Controls.Add(this.Number_Of_People_TextBox);
             this.Controls.Add(this.labeltax);
             this.Controls.Add(this.Tip_Per_Person_Label);
             this.Controls.Add(this.Tip_Percentage_TextBox);
@@ -229,7 +229,7 @@ namespace TipCalculator
         private System.Windows.Forms.TextBox Tip_Percentage_TextBox;
         private System.Windows.Forms.Label Tip_Per_Person_Label;
         private System.Windows.Forms.Label labeltax;
-        private System.Windows.Forms.TextBox Number_Of_People;
+        private System.Windows.Forms.TextBox Number_Of_People_TextBox;
         private System.Windows.Forms.Label Number_Of_People_Label;
         private System.Windows.Forms.Label Bill_Amount_Label;
         private System.Windows.Forms.Label label6;
