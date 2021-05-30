@@ -10,50 +10,51 @@ using System.Windows.Forms;
 
 namespace TipCalculator
 {
+   
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+
         }
-      
         private void Calculate_Tip()
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text))
+            if (String.IsNullOrEmpty(Bill_amount_Textbox.Text) || String.IsNullOrEmpty(Tip_Percentage_TextBox.Text) || String.IsNullOrEmpty(Number_Of_People.Text))
             {
                 label6.Text = ("Field must not be empty");
             }
             else
             {
-                double bill=0, tip=0, total=0, noofpoeple=0, perperson=0;
+                double Bill_Amount=0, Tip_Percentage=0, Total_Per_Person=0, Number_Of_People=0, Tip_Per_Person=0;
                 try
                 {
-                    bill = double.Parse(textBox1.Text);
+                    Bill_Amount = double.Parse(Bill_amount_Textbox.Text);
                 }
                 catch (System.OverflowException)
                 {
-                    bill = 0;
-                    textBox1.Text = "0";
+                    Bill_Amount = 0;
+                    Bill_amount_Textbox.Text = "0";
                 }
                 
-                noofpoeple = double.Parse(textBox3.Text);
-                tip = double.Parse(textBox2.Text);
-                if (tip > 100)
+                Number_Of_People = double.Parse(this.Number_Of_People.Text);
+                Tip_Percentage = double.Parse(Tip_Percentage_TextBox.Text);
+                if (Tip_Percentage > 100)
                 {
-                    tip = 100;
-                    textBox2.Text = "100";
+                    Tip_Percentage = 100;
+                    Tip_Percentage_TextBox.Text = "100";
                 }
-                if (noofpoeple > 1000)
+                if (Number_Of_People > 1000)
                 {
-                    noofpoeple = 1000;
-                    textBox3.Text = "1000";
+                    Number_Of_People = 1000;
+                    this.Number_Of_People.Text = "1000";
                 }
-                if (noofpoeple==0)
+                if (Number_Of_People==0)
                 {
-                    noofpoeple = 1;
-                    textBox3.Text = "1";
+                    Number_Of_People = 1;
+                    this.Number_Of_People.Text = "1";
                 }
-                if (bill < 0 || noofpoeple < 0 || tip < 0)
+                if (Bill_Amount < 0 || Number_Of_People < 0 || Tip_Percentage < 0)
                 {
                     label6.Text = ("Negetive Text Field");
                 }
@@ -61,80 +62,80 @@ namespace TipCalculator
                 {
                     label6.Text = ("");
                     try
-                    {
-                        total = (tip / 100) * bill;
-                        total = Math.Round((total / noofpoeple), 3);
+                    {                    
+                        Total_Per_Person = (Tip_Percentage / 100) * Bill_Amount;
+                        Total_Per_Person = Math.Round((Total_Per_Person / Number_Of_People), 3);
                     }
                     catch (System.OverflowException)
                     {
-                        total = 0;
+                        Total_Per_Person = 0;
                         labeltax.Text = "$0";
                     }
 
                     try
                     {
-                       perperson = Math.Round((total + (bill / noofpoeple)), 3);
+                        Tip_Per_Person = Math.Round((Total_Per_Person + (Bill_Amount / Number_Of_People)), 3);
                     }
                     catch (System.OverflowException)
                     {
-                        perperson = 0;
+                        Tip_Per_Person = 0;
                         label8.Text = "$0";
                     }
-                    labeltax.Text = ("$") + total.ToString();
-                    label8.Text = ("$") + perperson.ToString();
+                    labeltax.Text = ("$") + Total_Per_Person.ToString();
+                    label8.Text = ("$") + Tip_Per_Person.ToString();
                 }
             }
         }
 
         private void tipminus_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox2.Text))
+            if (String.IsNullOrEmpty(Tip_Percentage_TextBox.Text))
             {
-                textBox2.Text = "0";
+                Tip_Percentage_TextBox.Text = "0";
             }
-            else if (double.Parse(textBox2.Text) > 0)
+            else if (double.Parse(Tip_Percentage_TextBox.Text) > 0)
             {
-                double temp = double.Parse(textBox2.Text) - 1;
-                textBox2.Text = temp.ToString();
+                double temp = double.Parse(Tip_Percentage_TextBox.Text) - 1;
+                Tip_Percentage_TextBox.Text = temp.ToString();
             }
         }
 
         private void tipplus_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox2.Text))
+            if (String.IsNullOrEmpty(Tip_Percentage_TextBox.Text))
             {
-                textBox2.Text = "0";
+                Tip_Percentage_TextBox.Text = "0";
             }
-            else if (double.Parse(textBox2.Text) < 100)
+            else if (double.Parse(Tip_Percentage_TextBox.Text) < 100)
             {
-                double temp = double.Parse(textBox2.Text) + 1;
-                textBox2.Text = temp.ToString();
+                double temp = double.Parse(Tip_Percentage_TextBox.Text) + 1;
+                Tip_Percentage_TextBox.Text = temp.ToString();
             }
         }
 
         private void pplplus_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text))
+            if (String.IsNullOrEmpty(Number_Of_People.Text))
             {
-                textBox3.Text = "1";
+                Number_Of_People.Text = "1";
             }
-            else if (double.Parse(textBox3.Text) < 100)
+            else if (double.Parse(Number_Of_People.Text) < 100)
             {
-                double temp = double.Parse(textBox3.Text) + 1;
-                textBox3.Text = temp.ToString();
+                double temp = double.Parse(Number_Of_People.Text) + 1;
+                Number_Of_People.Text = temp.ToString();
             }
         }
 
         private void pplminus_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox3.Text))
+            if (String.IsNullOrEmpty(Number_Of_People.Text))
             {
-                textBox3.Text = "1";
+                Number_Of_People.Text = "1";
             }
-            else if (double.Parse(textBox3.Text) > 1)
+            else if (double.Parse(Number_Of_People.Text) > 1)
             {
-                double temp = double.Parse(textBox3.Text) - 1;
-                textBox3.Text = temp.ToString();
+                double temp = double.Parse(Number_Of_People.Text) - 1;
+                Number_Of_People.Text = temp.ToString();
             }
         }
 
@@ -181,4 +182,5 @@ namespace TipCalculator
             }
         }
     }
+
 }
