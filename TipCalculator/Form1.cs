@@ -17,251 +17,241 @@ namespace TipCalculator
         {
             InitializeComponent();
         }
-        //This method Takes Values from all 3 TextBoxes and Calculate result.
-        private void Calculate_Tip() 
+        // This method Takes Values from all 3 TextBoxes and Calculate result.
+        private void CalculateTip() 
         {
-            /*Below if statement checks if any of the 3 TextBoxes don't have any value
-             * if not, Empty_Field_Alert_Label shows a text.
-             * else we calculate our result.
-             */
+            // Below if statement checks if any of the 3 TextBoxes don't have any value
+            // if not, lblEmptyFieldAlert shows a text.
+            // else we calculate our result.
 
-            if (String.IsNullOrEmpty(Bill_Amount_Textbox.Text) || String.IsNullOrEmpty(Tip_Percentage_TextBox.Text) || String.IsNullOrEmpty(Number_Of_People_TextBox.Text))
+
+            if (String.IsNullOrEmpty(txtBillAmount.Text) || String.IsNullOrEmpty(txtTipPercentage.Text) || String.IsNullOrEmpty(txtNumberOfPeople.Text))
             {
-                Empty_Field_Alert_Label.Text = ("Field must not be empty");
+                lblEmptyFieldAlert.Text = ("Field must not be empty");
             }
             else
             {
-                double Bill_Amount,Tip_Percentage,Total_Per_Person,Number_Of_People,Tip_Per_Person;
+                double BillAmount,TipPercentage,TotalPerPerson,NumberOfPeople,TipPerPerson;
 
-                /*Below try block takes Bill_Amount and check if it exceeds maximum capacity
-                 * of "double" data type.
-                */
+                // Below try block takes BillAmount and check if it exceeds maximum capacity
+                // of "double" data type.
+
 
                 try
                 {
-                    Bill_Amount = double.Parse(Bill_Amount_Textbox.Text);
+                    BillAmount = double.Parse(txtBillAmount.Text);
                 }
                 catch (System.OverflowException)
                 {
-                    Bill_Amount = 0;
-                    Bill_Amount_Textbox.Text = "0"; //resets Bill Amount
+                    // Resets BillAmount and update in TextBox.
+                    BillAmount = 0;
+                    txtBillAmount.Text = "0"; 
                 }
 
-                Number_Of_People = double.Parse(this.Number_Of_People_TextBox.Text); //Takes imput from Number_Of_People_TextBox
+                //Takes input from txtNumberOfPeople
+                NumberOfPeople = double.Parse(this.txtNumberOfPeople.Text);
 
-                Tip_Percentage = double.Parse(Tip_Percentage_TextBox.Text); //Takes imput from Tip_Percentage_TextBox
+                //Takes input from txtTipPercentage
+                TipPercentage = double.Parse(txtTipPercentage.Text);
 
-                /*Below "if" blocks checks if the current value of Tip_Percentage is current more that 100
-                 * if yes then reset it to 100.
-                 */
+                // Below "if" block checks if the current value of TipPercentage is current more that 100
+                // if yes then reset it to 100.
 
-                if (Tip_Percentage > 100)
+                if (TipPercentage > 100)
                 {
-                    Tip_Percentage = 100;
-                    Tip_Percentage_TextBox.Text = "100";
+                    TipPercentage = 100;
+                    txtTipPercentage.Text = "100";
                 }
 
-                 /* if Number_Of_People is more than 1000 then set it to 1000  
-                 */
+                // If NumberOfPeople is more than 1000 then set it to 1000  
 
-                if (Number_Of_People > 1000)
+                if (NumberOfPeople > 1000)
                 {
-                    Number_Of_People = 1000;
-                    this.Number_Of_People_TextBox.Text = "1000";
+                    NumberOfPeople = 1000;
+                    this.txtNumberOfPeople.Text = "1000";
                 }
 
-                //if Number_Of_People is set as 0 then reset
+                // If NumberOfPeople is set as 0 then reset
 
-                if (Number_Of_People==0)
+                if (NumberOfPeople==0)
                 {
-                    Number_Of_People = 1;
-                    this.Number_Of_People_TextBox.Text = "1";
+                    NumberOfPeople = 1;
+                    this.txtNumberOfPeople.Text = "1";
                 }
 
-                Empty_Field_Alert_Label.Text = ("");//If all the 3 TextBoxes Have valid input then hide Empty_Field_Alert
+                // If all the 3 TextBoxes Have valid input then hide lblEmptyFieldAlert
+                lblEmptyFieldAlert.Text = ("");
 
-                /*Below try block calculates Total_Per_Person and check if it exceeds maximum capacity
-                * of "double" data type. If it does then reset it to $0.
-                */
-
+                //Below try block calculates Total_Per_Person and check if it exceeds maximum capacity
+                // of "double" data type. If it does then reset it to $0.
+                
                 try
                 {                    
-                    Total_Per_Person = (Tip_Percentage / 100) * Bill_Amount;
-                    Total_Per_Person = Math.Round((Total_Per_Person / Number_Of_People), 3);
+                    TotalPerPerson = (TipPercentage / 100) * BillAmount;
+                    TotalPerPerson = Math.Round((TotalPerPerson / NumberOfPeople), 3);
                 }
                 catch (System.OverflowException)
                 {
-                    Total_Per_Person = 0;
-                    Tip_Per_Person_Result.Text = "$0";
+                    TotalPerPerson = 0;
+                    lblTipPerPersonResult.Text = "$0";
                 }
 
-                /*Below try block calculates Tip_Per_Person and check if it exceeds maximum capacity
-                * of "double" data type. If it does then reset it to $0.
-                */
-
+                // Below try block calculates Tip_Per_Person and check if it exceeds maximum capacity
+                // of "double" data type. If it does then reset it to $0.
+                
                 try
                 {
-                    Tip_Per_Person = Math.Round((Total_Per_Person + (Bill_Amount / Number_Of_People)), 3);
+                    TipPerPerson = Math.Round((TotalPerPerson + (BillAmount / NumberOfPeople)), 3);
                 }
                 catch (System.OverflowException)
                 {
-                    Tip_Per_Person = 0;
-                    Total_Per_Person_Result.Text = "$0";
+                    TipPerPerson = 0;
+                    lblTotalPerPersonResult.Text = "$0";
                 }
 
-                Tip_Per_Person_Result.Text = ("$") + Total_Per_Person.ToString();
-                Total_Per_Person_Result.Text = ("$") + Tip_Per_Person.ToString();
+                lblTipPerPersonResult.Text = ("$") + TotalPerPerson.ToString();
+                lblTotalPerPersonResult.Text = ("$") + TipPerPerson.ToString();
                 
             }
         }
 
-        /*Below Tip_Decrease_Button_Click Method changes value but first checking 
-         * if TextBox is empty, then reset it to 0 ,
-         * now check for limt 100(for tip%) if not then decrease value by 1 */
+        // Below TipDecreasebtnClick Method changes value but first checking 
+        // if TextBox is empty, then reset it to 0 ,
+        // now check for limt 100(for tip%) if not then decrease value by 1.
 
-        private void Tip_Decrease_Button_Click(object sender, EventArgs e)
+        private void TipDecreasebtnClick(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Tip_Percentage_TextBox.Text))
+            if (String.IsNullOrEmpty(txtTipPercentage.Text))
             {
-                Tip_Percentage_TextBox.Text = "0";
+                txtTipPercentage.Text = "0";
             }
-            else if (double.Parse(Tip_Percentage_TextBox.Text) < 100)
+            else if (double.Parse(txtTipPercentage.Text) >0)
             {
-                //Decrease Value inside Tip_Percentage_TextBox by 1
-                double temp = double.Parse(Tip_Percentage_TextBox.Text) - 1;
-                //Update Value inside Tip_Percentage_TextBox
-                Tip_Percentage_TextBox.Text = temp.ToString();
+                // Decrease Value inside txtTipPercentage by 1.
+                double temp = double.Parse(txtTipPercentage.Text) - 1;
+                // Update Value inside txtTipPercentage.
+                txtTipPercentage.Text = temp.ToString();
             }
         }
 
-        /*Below Tip_Increase_Button_Click Method changes value but first checking 
-         * if TextBox is empty, then reset it to 0 ,
-         * now check if input value is >0 then increase value by 1 */
+        // Below TipIncreasebtnClick Method changes value but first checking 
+        //  if TextBox is empty, then reset it to 0 ,
+        //  now check if input value is >0 then increase value by 1.
 
-        private void Tip_Increase_Button_Click(object sender, EventArgs e)
+        private void TipIncreasebtnClick(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Tip_Percentage_TextBox.Text))
+            if (String.IsNullOrEmpty(txtTipPercentage.Text))
             {
-                Tip_Percentage_TextBox.Text = "0";
+                txtTipPercentage.Text = "0";
             }
-            else if (double.Parse(Tip_Percentage_TextBox.Text) > 0)
+            else if (double.Parse(txtTipPercentage.Text) < 100)
             {
-                //Increase Value inside Tip_Percentage_TextBox by 1
-                double temp = double.Parse(Tip_Percentage_TextBox.Text) + 1;
-                //Update Value inside Tip_Percentage_TextBox
-                Tip_Percentage_TextBox.Text = temp.ToString();
+                // Increase Value inside txtTipPercentage by 1.
+                double temp = double.Parse(txtTipPercentage.Text) + 1;
+                // Update Value inside txtTipPercentage.
+                txtTipPercentage.Text = temp.ToString();
             }
         }
 
-        /*Below Number_Of_People_Decrease_Button_Click Method changes value but first checking 
-         * if TextBox is empty, then reset it to 1 ,
-         * now check if input >1 if yes then decrease value by 1 and display value */
+        // Below NumberOfPeopleDecreasebtnClick Method changes value but first checking 
+        // if TextBox is empty, then reset it to 1 ,
+        // now check if input >1 if yes then decrease value by 1 and display value.
 
-        private void Number_Of_People_Decrease_Button_Click(object sender, EventArgs e)
+        private void NumberOfPeopleDecreasebtnClick(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Number_Of_People_TextBox.Text))
+            if (String.IsNullOrEmpty(txtNumberOfPeople.Text))
             {
-                Number_Of_People_TextBox.Text = "1";
+                txtNumberOfPeople.Text = "1";
             }
-            else if (double.Parse(Number_Of_People_TextBox.Text) > 1)
+            else if (double.Parse(txtNumberOfPeople.Text) > 1)
             {
-                //Decrease Value inside Number_Of_People_TextBox by 1
-                double temp = double.Parse(Number_Of_People_TextBox.Text) - 1;
-                //Update Value inside Number_Of_People_TextBox
-                Number_Of_People_TextBox.Text = temp.ToString();
+                // Decrease Value inside txtNumberOfPeople by 1.
+                double temp = double.Parse(txtNumberOfPeople.Text) - 1;
+                // Update Value inside txtNumberOfPeople.
+                txtNumberOfPeople.Text = temp.ToString();
             }
         }
 
-        /*Below Number_Of_People_Increase_Button_Click Method changes value but first checking 
-         * if TextBox is empty, then reset it to 1 ,
-         * now check if input value is <100 then increase value by 1 */
+        // Below NumberOfPeopleIncreasebtnClick Method changes value but first checking 
+        // if TextBox is empty, then reset it to 1 ,
+        // now check if input value is <100 then increase value by 1.
 
-        private void Number_Of_People_Increase_Button_Click(object sender, EventArgs e)
+        private void NumberOfPeopleIncreasebtnClick(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Number_Of_People_TextBox.Text))
+            if (String.IsNullOrEmpty(txtNumberOfPeople.Text))
             {
-                Number_Of_People_TextBox.Text = "1";
+                txtNumberOfPeople.Text = "1";
             }
-            else if (double.Parse(Number_Of_People_TextBox.Text) < 100)
+            else if (double.Parse(txtNumberOfPeople.Text) < 1000)
             {
-                //Decrease Value inside Number_Of_People_TextBox by 1
-                double temp = double.Parse(Number_Of_People_TextBox.Text) + 1;
-                //Update Value inside Number_Of_People_TextBox
-                Number_Of_People_TextBox.Text = temp.ToString();
+                // Decrease Value inside txtNumberOfPeople by 1.
+                double temp = double.Parse(txtNumberOfPeople.Text) + 1;
+                // Update Value inside txtNumberOfPeople.
+                txtNumberOfPeople.Text = temp.ToString();
             }
         }
 
-        /*
-         * Below KeyPress Method checks if value entered is a digit or not.
-         * if not then it wont be added to the TextBox.
-         */
+        // Below KeyPress Method checks if value entered is a digit or not.
+        // if not then it wont be added to the TextBox.
 
-        private void Bill_Amount_Textbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void BillAmounttxtKeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
+            if ((!Char.IsDigit(ch)) && (ch != 8))
             {
                 e.Handled = true;
             }
         }
 
-        /*
-         * Below TextChanged Method only have Digits as input as Filtering is already done by 
-         * KeyPress method, On Every TextChange we calculate Tip.
-         */
-
-        private void Bill_Amount_Textbox_TextChanged(object sender, EventArgs e)
+         // Below TextChanged Method only have Digits as input as Filtering is already done by 
+         // KeyPress method, On Every TextChange we calculate Tip.
+         
+        private void BillAmounttxtTextChanged(object sender, EventArgs e)
         {
-            Calculate_Tip();
+            CalculateTip();
         }
 
-        /*
-         * Below TextChanged Method only have Digits as input as Filtering is already done by 
-         * KeyPress method, On Every TextChange we calculate Tip.
-         */
+         // Below TextChanged Method only have Digits as input as Filtering is already done by 
+         // KeyPress method, On Every TextChange we calculate Tip.
 
-        private void Tip_Percentage_TextBox_TextChanged(object sender, EventArgs e)
+        private void TipPercentagetxtTextChanged(object sender, EventArgs e)
         {
-            Calculate_Tip();
+            CalculateTip();
         }
 
-        /*
-        * Below KeyPress Method checks if value entered is a digit or not.
-        * if not then it wont be added to the TextBox.
-        */
-
-        private void Tip_Percentage_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        // Below KeyPress Method checks if value entered is a digit or not.
+        // if not then it wont be added to the TextBox.
+        
+        private void TipPercentagetxtKeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8) //ch!=8 make sure backspace is not entered as input
+            // "ch!=8" make sure backspace is not entered as input
+            if ((!Char.IsDigit(ch)) && (ch != 8))
             {
                 e.Handled = true;
             }
         }
 
-        /*
-         * Below TextChanged Method only have Digits as input as Filtering is already done by 
-         * KeyPress method, On Every TextChange we calculate Tip.
-         */
-
-        private void Number_Of_People_TextBox_TextChanged(object sender, EventArgs e)
+        // Below TextChanged Method only have Digits as input as Filtering is already done by 
+        // KeyPress method, On Every TextChange we calculate Tip.
+         
+        private void NumberOfPeopletxtTextChanged(object sender, EventArgs e)
         {
-            Calculate_Tip();
-        }
-
-        /*
-        * Below KeyPress Method checks if value entered is a digit or not.
-        * if not then it wont be added to the TextBox.
-        */
-
-        private void Number_Of_People_TextBox_KeyPress(object sender, KeyPressEventArgs e)
+            CalculateTip();
+        }  
+        
+        // Below KeyPress Method checks if value entered is a digit or not.
+        // if not then it wont be added to the TextBox.
+        
+        private void NumberOfPeopletxtKeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
+            if ((!Char.IsDigit(ch)) && (ch != 8))
             {
                 e.Handled = true;
             }
         }
+
     }
 
 }

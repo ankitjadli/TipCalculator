@@ -29,171 +29,171 @@ namespace TipCalculator
         /// </summary>
         private void InitializeComponent()
         {
-            this.Tip_Percentage_Label = new System.Windows.Forms.Label();
-            this.Bill_Amount_Textbox = new System.Windows.Forms.TextBox();
-            this.Tip_Percentage_TextBox = new System.Windows.Forms.TextBox();
-            this.Tip_Per_Person_Label = new System.Windows.Forms.Label();
-            this.Tip_Per_Person_Result = new System.Windows.Forms.Label();
-            this.Number_Of_People_TextBox = new System.Windows.Forms.TextBox();
-            this.Number_Of_People_Label = new System.Windows.Forms.Label();
-            this.Bill_Amount_Label = new System.Windows.Forms.Label();
-            this.Empty_Field_Alert_Label = new System.Windows.Forms.Label();
-            this.Total_Per_Person_Label = new System.Windows.Forms.Label();
-            this.Total_Per_Person_Result = new System.Windows.Forms.Label();
-            this.Number_Of_People_Increase_Button = new System.Windows.Forms.Button();
-            this.Number_Of_People_Decrease_Button = new System.Windows.Forms.Button();
-            this.Tip_Increase_Button = new System.Windows.Forms.Button();
-            this.Tip_Decrease_Button = new System.Windows.Forms.Button();
+            this.lblTipPercentage = new System.Windows.Forms.Label();
+            this.txtBillAmount = new System.Windows.Forms.TextBox();
+            this.txtTipPercentage = new System.Windows.Forms.TextBox();
+            this.lblTipPerPerson = new System.Windows.Forms.Label();
+            this.lblTipPerPersonResult = new System.Windows.Forms.Label();
+            this.txtNumberOfPeople = new System.Windows.Forms.TextBox();
+            this.lblNumberOfPeople = new System.Windows.Forms.Label();
+            this.lblBillAmount = new System.Windows.Forms.Label();
+            this.lblEmptyFieldAlert = new System.Windows.Forms.Label();
+            this.lblTotalPerPerson = new System.Windows.Forms.Label();
+            this.lblTotalPerPersonResult = new System.Windows.Forms.Label();
+            this.btnNumberOfPeopleIncrease = new System.Windows.Forms.Button();
+            this.btnNumberOfPeopleDecrease = new System.Windows.Forms.Button();
+            this.btnTipIncrease = new System.Windows.Forms.Button();
+            this.btnTipDecrease = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Tip_Percentage_Label
+            // lblTipPercentage
             // 
-            this.Tip_Percentage_Label.AutoSize = true;
-            this.Tip_Percentage_Label.Location = new System.Drawing.Point(22, 72);
-            this.Tip_Percentage_Label.Name = "Tip_Percentage_Label";
-            this.Tip_Percentage_Label.Size = new System.Drawing.Size(33, 13);
-            this.Tip_Percentage_Label.TabIndex = 2;
-            this.Tip_Percentage_Label.Text = "Tip %";
+            this.lblTipPercentage.AutoSize = true;
+            this.lblTipPercentage.Location = new System.Drawing.Point(18, 72);
+            this.lblTipPercentage.Name = "lblTipPercentage";
+            this.lblTipPercentage.Size = new System.Drawing.Size(33, 13);
+            this.lblTipPercentage.TabIndex = 2;
+            this.lblTipPercentage.Text = "Tip %";
             // 
-            // Bill_Amount_Textbox
+            // txtBillAmount
             // 
-            this.Bill_Amount_Textbox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Bill_Amount_Textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Bill_Amount_Textbox.Location = new System.Drawing.Point(21, 41);
-            this.Bill_Amount_Textbox.Name = "Bill_Amount_Textbox";
-            this.Bill_Amount_Textbox.Size = new System.Drawing.Size(122, 20);
-            this.Bill_Amount_Textbox.TabIndex = 3;
-            this.Bill_Amount_Textbox.Text = "0";
-            this.Bill_Amount_Textbox.TextChanged += new System.EventHandler(this.Bill_Amount_Textbox_TextChanged);
-            this.Bill_Amount_Textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Bill_Amount_Textbox_KeyPress);
+            this.txtBillAmount.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBillAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillAmount.Location = new System.Drawing.Point(21, 41);
+            this.txtBillAmount.Name = "txtBillAmount";
+            this.txtBillAmount.Size = new System.Drawing.Size(122, 20);
+            this.txtBillAmount.TabIndex = 3;
+            this.txtBillAmount.Text = "0";
+            this.txtBillAmount.TextChanged += new System.EventHandler(this.BillAmounttxtTextChanged);
+            this.txtBillAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BillAmounttxtKeyPress);
             // 
-            // Tip_Percentage_TextBox
+            // txtTipPercentage
             // 
-            this.Tip_Percentage_TextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Tip_Percentage_TextBox.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Tip_Percentage_TextBox.Location = new System.Drawing.Point(42, 88);
-            this.Tip_Percentage_TextBox.Name = "Tip_Percentage_TextBox";
-            this.Tip_Percentage_TextBox.Size = new System.Drawing.Size(83, 20);
-            this.Tip_Percentage_TextBox.TabIndex = 4;
-            this.Tip_Percentage_TextBox.Text = "0";
-            this.Tip_Percentage_TextBox.TextChanged += new System.EventHandler(this.Tip_Percentage_TextBox_TextChanged);
-            this.Tip_Percentage_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tip_Percentage_TextBox_KeyPress);
+            this.txtTipPercentage.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtTipPercentage.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.txtTipPercentage.Location = new System.Drawing.Point(42, 88);
+            this.txtTipPercentage.Name = "txtTipPercentage";
+            this.txtTipPercentage.Size = new System.Drawing.Size(83, 20);
+            this.txtTipPercentage.TabIndex = 4;
+            this.txtTipPercentage.Text = "0";
+            this.txtTipPercentage.TextChanged += new System.EventHandler(this.TipPercentagetxtTextChanged);
+            this.txtTipPercentage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TipPercentagetxtKeyPress);
             // 
-            // Tip_Per_Person_Label
+            // lblTipPerPerson
             // 
-            this.Tip_Per_Person_Label.AutoSize = true;
-            this.Tip_Per_Person_Label.Location = new System.Drawing.Point(209, 48);
-            this.Tip_Per_Person_Label.Name = "Tip_Per_Person_Label";
-            this.Tip_Per_Person_Label.Size = new System.Drawing.Size(77, 13);
-            this.Tip_Per_Person_Label.TabIndex = 5;
-            this.Tip_Per_Person_Label.Text = "Tip Per Person";
+            this.lblTipPerPerson.AutoSize = true;
+            this.lblTipPerPerson.Location = new System.Drawing.Point(209, 48);
+            this.lblTipPerPerson.Name = "lblTipPerPerson";
+            this.lblTipPerPerson.Size = new System.Drawing.Size(77, 13);
+            this.lblTipPerPerson.TabIndex = 5;
+            this.lblTipPerPerson.Text = "Tip Per Person";
             // 
-            // Tip_Per_Person_Result
+            // lblTipPerPersonResult
             // 
-            this.Tip_Per_Person_Result.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Tip_Per_Person_Result.Font = new System.Drawing.Font("Leelawadee", 8.25F);
-            this.Tip_Per_Person_Result.Location = new System.Drawing.Point(292, 48);
-            this.Tip_Per_Person_Result.Name = "Tip_Per_Person_Result";
-            this.Tip_Per_Person_Result.Size = new System.Drawing.Size(250, 20);
-            this.Tip_Per_Person_Result.TabIndex = 6;
-            this.Tip_Per_Person_Result.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTipPerPersonResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTipPerPersonResult.Font = new System.Drawing.Font("Leelawadee", 8.25F);
+            this.lblTipPerPersonResult.Location = new System.Drawing.Point(292, 48);
+            this.lblTipPerPersonResult.Name = "lblTipPerPersonResult";
+            this.lblTipPerPersonResult.Size = new System.Drawing.Size(250, 20);
+            this.lblTipPerPersonResult.TabIndex = 6;
+            this.lblTipPerPersonResult.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Number_Of_People_TextBox
+            // txtNumberOfPeople
             // 
-            this.Number_Of_People_TextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Number_Of_People_TextBox.Location = new System.Drawing.Point(42, 133);
-            this.Number_Of_People_TextBox.Name = "Number_Of_People_TextBox";
-            this.Number_Of_People_TextBox.Size = new System.Drawing.Size(83, 20);
-            this.Number_Of_People_TextBox.TabIndex = 9;
-            this.Number_Of_People_TextBox.Text = "1";
-            this.Number_Of_People_TextBox.TextChanged += new System.EventHandler(this.Number_Of_People_TextBox_TextChanged);
-            this.Number_Of_People_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Number_Of_People_TextBox_KeyPress);
+            this.txtNumberOfPeople.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNumberOfPeople.Location = new System.Drawing.Point(42, 133);
+            this.txtNumberOfPeople.Name = "txtNumberOfPeople";
+            this.txtNumberOfPeople.Size = new System.Drawing.Size(83, 20);
+            this.txtNumberOfPeople.TabIndex = 9;
+            this.txtNumberOfPeople.Text = "1";
+            this.txtNumberOfPeople.TextChanged += new System.EventHandler(this.NumberOfPeopletxtTextChanged);
+            this.txtNumberOfPeople.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberOfPeopletxtKeyPress);
             // 
-            // Number_Of_People_Label
+            // lblNumberOfPeople
             // 
-            this.Number_Of_People_Label.AutoSize = true;
-            this.Number_Of_People_Label.Location = new System.Drawing.Point(22, 117);
-            this.Number_Of_People_Label.Name = "Number_Of_People_Label";
-            this.Number_Of_People_Label.Size = new System.Drawing.Size(91, 13);
-            this.Number_Of_People_Label.TabIndex = 12;
-            this.Number_Of_People_Label.Text = "Number of people";
+            this.lblNumberOfPeople.AutoSize = true;
+            this.lblNumberOfPeople.Location = new System.Drawing.Point(18, 117);
+            this.lblNumberOfPeople.Name = "lblNumberOfPeople";
+            this.lblNumberOfPeople.Size = new System.Drawing.Size(91, 13);
+            this.lblNumberOfPeople.TabIndex = 12;
+            this.lblNumberOfPeople.Text = "Number of people";
             // 
-            // Bill_Amount_Label
+            // lblBillAmount
             // 
-            this.Bill_Amount_Label.AutoSize = true;
-            this.Bill_Amount_Label.Location = new System.Drawing.Point(24, 25);
-            this.Bill_Amount_Label.Name = "Bill_Amount_Label";
-            this.Bill_Amount_Label.Size = new System.Drawing.Size(20, 13);
-            this.Bill_Amount_Label.TabIndex = 13;
-            this.Bill_Amount_Label.Text = "Bill";
+            this.lblBillAmount.AutoSize = true;
+            this.lblBillAmount.Location = new System.Drawing.Point(18, 25);
+            this.lblBillAmount.Name = "lblBillAmount";
+            this.lblBillAmount.Size = new System.Drawing.Size(20, 13);
+            this.lblBillAmount.TabIndex = 13;
+            this.lblBillAmount.Text = "Bill";
             // 
-            // Empty_Field_Alert_Label
+            // lblEmptyFieldAlert
             // 
-            this.Empty_Field_Alert_Label.AutoSize = true;
-            this.Empty_Field_Alert_Label.ForeColor = System.Drawing.Color.Red;
-            this.Empty_Field_Alert_Label.Location = new System.Drawing.Point(241, 163);
-            this.Empty_Field_Alert_Label.Name = "Empty_Field_Alert_Label";
-            this.Empty_Field_Alert_Label.Size = new System.Drawing.Size(0, 13);
-            this.Empty_Field_Alert_Label.TabIndex = 14;
+            this.lblEmptyFieldAlert.AutoSize = true;
+            this.lblEmptyFieldAlert.ForeColor = System.Drawing.Color.Red;
+            this.lblEmptyFieldAlert.Location = new System.Drawing.Point(241, 163);
+            this.lblEmptyFieldAlert.Name = "lblEmptyFieldAlert";
+            this.lblEmptyFieldAlert.Size = new System.Drawing.Size(0, 13);
+            this.lblEmptyFieldAlert.TabIndex = 14;
             // 
-            // Total_Per_Person_Label
+            // lblTotalPerPerson
             // 
-            this.Total_Per_Person_Label.AutoSize = true;
-            this.Total_Per_Person_Label.Location = new System.Drawing.Point(209, 99);
-            this.Total_Per_Person_Label.Name = "Total_Per_Person_Label";
-            this.Total_Per_Person_Label.Size = new System.Drawing.Size(86, 13);
-            this.Total_Per_Person_Label.TabIndex = 15;
-            this.Total_Per_Person_Label.Text = "Total Per Person";
+            this.lblTotalPerPerson.AutoSize = true;
+            this.lblTotalPerPerson.Location = new System.Drawing.Point(209, 99);
+            this.lblTotalPerPerson.Name = "lblTotalPerPerson";
+            this.lblTotalPerPerson.Size = new System.Drawing.Size(86, 13);
+            this.lblTotalPerPerson.TabIndex = 15;
+            this.lblTotalPerPerson.Text = "Total Per Person";
             // 
-            // Total_Per_Person_Result
+            // lblTotalPerPersonResult
             // 
-            this.Total_Per_Person_Result.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Total_Per_Person_Result.Font = new System.Drawing.Font("Leelawadee", 8.25F, System.Drawing.FontStyle.Bold);
-            this.Total_Per_Person_Result.Location = new System.Drawing.Point(301, 91);
-            this.Total_Per_Person_Result.Name = "Total_Per_Person_Result";
-            this.Total_Per_Person_Result.Size = new System.Drawing.Size(241, 21);
-            this.Total_Per_Person_Result.TabIndex = 16;
-            this.Total_Per_Person_Result.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotalPerPersonResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblTotalPerPersonResult.Font = new System.Drawing.Font("Leelawadee", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblTotalPerPersonResult.Location = new System.Drawing.Point(301, 91);
+            this.lblTotalPerPersonResult.Name = "lblTotalPerPersonResult";
+            this.lblTotalPerPersonResult.Size = new System.Drawing.Size(241, 21);
+            this.lblTotalPerPersonResult.TabIndex = 16;
+            this.lblTotalPerPersonResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Number_Of_People_Increase_Button
+            // btnNumberOfPeopleIncrease
             // 
-            this.Number_Of_People_Increase_Button.Location = new System.Drawing.Point(116, 131);
-            this.Number_Of_People_Increase_Button.Name = "Number_Of_People_Increase_Button";
-            this.Number_Of_People_Increase_Button.Size = new System.Drawing.Size(27, 23);
-            this.Number_Of_People_Increase_Button.TabIndex = 17;
-            this.Number_Of_People_Increase_Button.Text = "+";
-            this.Number_Of_People_Increase_Button.UseVisualStyleBackColor = true;
-            this.Number_Of_People_Increase_Button.Click += new System.EventHandler(this.Number_Of_People_Increase_Button_Click);
+            this.btnNumberOfPeopleIncrease.Location = new System.Drawing.Point(116, 131);
+            this.btnNumberOfPeopleIncrease.Name = "btnNumberOfPeopleIncrease";
+            this.btnNumberOfPeopleIncrease.Size = new System.Drawing.Size(27, 23);
+            this.btnNumberOfPeopleIncrease.TabIndex = 17;
+            this.btnNumberOfPeopleIncrease.Text = "+";
+            this.btnNumberOfPeopleIncrease.UseVisualStyleBackColor = true;
+            this.btnNumberOfPeopleIncrease.Click += new System.EventHandler(this.NumberOfPeopleIncreasebtnClick);
             // 
-            // Number_Of_People_Decrease_Button
+            // btnNumberOfPeopleDecrease
             // 
-            this.Number_Of_People_Decrease_Button.Location = new System.Drawing.Point(21, 131);
-            this.Number_Of_People_Decrease_Button.Name = "Number_Of_People_Decrease_Button";
-            this.Number_Of_People_Decrease_Button.Size = new System.Drawing.Size(23, 23);
-            this.Number_Of_People_Decrease_Button.TabIndex = 18;
-            this.Number_Of_People_Decrease_Button.Text = "-";
-            this.Number_Of_People_Decrease_Button.UseVisualStyleBackColor = true;
-            this.Number_Of_People_Decrease_Button.Click += new System.EventHandler(this.Number_Of_People_Decrease_Button_Click);
+            this.btnNumberOfPeopleDecrease.Location = new System.Drawing.Point(21, 131);
+            this.btnNumberOfPeopleDecrease.Name = "btnNumberOfPeopleDecrease";
+            this.btnNumberOfPeopleDecrease.Size = new System.Drawing.Size(23, 23);
+            this.btnNumberOfPeopleDecrease.TabIndex = 18;
+            this.btnNumberOfPeopleDecrease.Text = "-";
+            this.btnNumberOfPeopleDecrease.UseVisualStyleBackColor = true;
+            this.btnNumberOfPeopleDecrease.Click += new System.EventHandler(this.NumberOfPeopleDecreasebtnClick);
             // 
-            // Tip_Increase_Button
+            // btnTipIncrease
             // 
-            this.Tip_Increase_Button.Location = new System.Drawing.Point(121, 86);
-            this.Tip_Increase_Button.Name = "Tip_Increase_Button";
-            this.Tip_Increase_Button.Size = new System.Drawing.Size(22, 23);
-            this.Tip_Increase_Button.TabIndex = 19;
-            this.Tip_Increase_Button.Text = "+";
-            this.Tip_Increase_Button.UseVisualStyleBackColor = true;
-            this.Tip_Increase_Button.Click += new System.EventHandler(this.Tip_Increase_Button_Click);
+            this.btnTipIncrease.Location = new System.Drawing.Point(121, 86);
+            this.btnTipIncrease.Name = "btnTipIncrease";
+            this.btnTipIncrease.Size = new System.Drawing.Size(22, 23);
+            this.btnTipIncrease.TabIndex = 19;
+            this.btnTipIncrease.Text = "+";
+            this.btnTipIncrease.UseVisualStyleBackColor = true;
+            this.btnTipIncrease.Click += new System.EventHandler(this.TipIncreasebtnClick);
             // 
-            // Tip_Decrease_Button
+            // btnTipDecrease
             // 
-            this.Tip_Decrease_Button.Location = new System.Drawing.Point(21, 86);
-            this.Tip_Decrease_Button.Name = "Tip_Decrease_Button";
-            this.Tip_Decrease_Button.Size = new System.Drawing.Size(22, 23);
-            this.Tip_Decrease_Button.TabIndex = 20;
-            this.Tip_Decrease_Button.Text = "-";
-            this.Tip_Decrease_Button.UseVisualStyleBackColor = true;
-            this.Tip_Decrease_Button.Click += new System.EventHandler(this.Tip_Decrease_Button_Click);
+            this.btnTipDecrease.Location = new System.Drawing.Point(21, 86);
+            this.btnTipDecrease.Name = "btnTipDecrease";
+            this.btnTipDecrease.Size = new System.Drawing.Size(22, 23);
+            this.btnTipDecrease.TabIndex = 20;
+            this.btnTipDecrease.Text = "-";
+            this.btnTipDecrease.UseVisualStyleBackColor = true;
+            this.btnTipDecrease.Click += new System.EventHandler(this.TipDecreasebtnClick);
             // 
             // Form1
             // 
@@ -201,21 +201,21 @@ namespace TipCalculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(554, 212);
-            this.Controls.Add(this.Tip_Decrease_Button);
-            this.Controls.Add(this.Tip_Increase_Button);
-            this.Controls.Add(this.Number_Of_People_Decrease_Button);
-            this.Controls.Add(this.Number_Of_People_Increase_Button);
-            this.Controls.Add(this.Total_Per_Person_Result);
-            this.Controls.Add(this.Total_Per_Person_Label);
-            this.Controls.Add(this.Empty_Field_Alert_Label);
-            this.Controls.Add(this.Bill_Amount_Label);
-            this.Controls.Add(this.Number_Of_People_Label);
-            this.Controls.Add(this.Number_Of_People_TextBox);
-            this.Controls.Add(this.Tip_Per_Person_Result);
-            this.Controls.Add(this.Tip_Per_Person_Label);
-            this.Controls.Add(this.Tip_Percentage_TextBox);
-            this.Controls.Add(this.Bill_Amount_Textbox);
-            this.Controls.Add(this.Tip_Percentage_Label);
+            this.Controls.Add(this.btnTipDecrease);
+            this.Controls.Add(this.btnTipIncrease);
+            this.Controls.Add(this.btnNumberOfPeopleDecrease);
+            this.Controls.Add(this.btnNumberOfPeopleIncrease);
+            this.Controls.Add(this.lblTotalPerPersonResult);
+            this.Controls.Add(this.lblTotalPerPerson);
+            this.Controls.Add(this.lblEmptyFieldAlert);
+            this.Controls.Add(this.lblBillAmount);
+            this.Controls.Add(this.lblNumberOfPeople);
+            this.Controls.Add(this.txtNumberOfPeople);
+            this.Controls.Add(this.lblTipPerPersonResult);
+            this.Controls.Add(this.lblTipPerPerson);
+            this.Controls.Add(this.txtTipPercentage);
+            this.Controls.Add(this.txtBillAmount);
+            this.Controls.Add(this.lblTipPercentage);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -224,21 +224,21 @@ namespace TipCalculator
         }
 
         #endregion
-        private System.Windows.Forms.Label Tip_Percentage_Label;
-        private System.Windows.Forms.TextBox Bill_Amount_Textbox;
-        private System.Windows.Forms.TextBox Tip_Percentage_TextBox;
-        private System.Windows.Forms.Label Tip_Per_Person_Label;
-        private System.Windows.Forms.Label Tip_Per_Person_Result;
-        private System.Windows.Forms.TextBox Number_Of_People_TextBox;
-        private System.Windows.Forms.Label Number_Of_People_Label;
-        private System.Windows.Forms.Label Bill_Amount_Label;
-        private System.Windows.Forms.Label Empty_Field_Alert_Label;
-        private System.Windows.Forms.Label Total_Per_Person_Label;
-        private System.Windows.Forms.Label Total_Per_Person_Result;
-        private System.Windows.Forms.Button Number_Of_People_Increase_Button;
-        private System.Windows.Forms.Button Number_Of_People_Decrease_Button;
-        private System.Windows.Forms.Button Tip_Increase_Button;
-        private System.Windows.Forms.Button Tip_Decrease_Button;
+        private System.Windows.Forms.Label lblTipPercentage;
+        private System.Windows.Forms.TextBox txtBillAmount;
+        private System.Windows.Forms.TextBox txtTipPercentage;
+        private System.Windows.Forms.Label lblTipPerPerson;
+        private System.Windows.Forms.Label lblTipPerPersonResult;
+        private System.Windows.Forms.TextBox txtNumberOfPeople;
+        private System.Windows.Forms.Label lblNumberOfPeople;
+        private System.Windows.Forms.Label lblBillAmount;
+        private System.Windows.Forms.Label lblEmptyFieldAlert;
+        private System.Windows.Forms.Label lblTotalPerPerson;
+        private System.Windows.Forms.Label lblTotalPerPersonResult;
+        private System.Windows.Forms.Button btnNumberOfPeopleIncrease;
+        private System.Windows.Forms.Button btnNumberOfPeopleDecrease;
+        private System.Windows.Forms.Button btnTipIncrease;
+        private System.Windows.Forms.Button btnTipDecrease;
     }
 }
 
