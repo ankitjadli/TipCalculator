@@ -1,5 +1,5 @@
 # TipCalculator
-c# Based Project
+C# Windows Forms Application.
 
 # Video Demonstration
 Youtube : https://youtu.be/0-ShvgaADqc
