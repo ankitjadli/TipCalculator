@@ -165,9 +165,9 @@ namespace TipCalculator
             }
             else if (double.Parse(Number_Of_People_TextBox.Text) > 1)
             {
-                //Decrease Value inside Tip_Percentage_TextBox by 1
+                //Decrease Value inside Number_Of_People_TextBox by 1
                 double temp = double.Parse(Number_Of_People_TextBox.Text) - 1;
-                //Update Value inside Tip_Percentage_TextBox
+                //Update Value inside Number_Of_People_TextBox
                 Number_Of_People_TextBox.Text = temp.ToString();
             }
         }
@@ -184,7 +184,9 @@ namespace TipCalculator
             }
             else if (double.Parse(Number_Of_People_TextBox.Text) < 100)
             {
+                //Decrease Value inside Number_Of_People_TextBox by 1
                 double temp = double.Parse(Number_Of_People_TextBox.Text) + 1;
+                //Update Value inside Number_Of_People_TextBox
                 Number_Of_People_TextBox.Text = temp.ToString();
             }
         }
@@ -193,6 +195,7 @@ namespace TipCalculator
          * Below KeyPress Method checks if value entered is a digit or not.
          * if not then it wont be added to the TextBox.
          */
+
         private void Bill_Amount_Textbox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -230,7 +233,7 @@ namespace TipCalculator
         private void Tip_Percentage_TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8)
+            if (!Char.IsDigit(ch) && ch != 8) //ch!=8 make sure backspace is not entered as input
             {
                 e.Handled = true;
             }
